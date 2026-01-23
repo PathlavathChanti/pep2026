@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    set<int> s;
+    for(int i=1;i<=10;i++){
+        if(i % 2 == 0){
+        s.insert(i * i);
+        }
+    }
+    std::cout << "Set elements: ";
+    for (int val : s) {
+        std::cout << val << " ";
+    }
+    std::cout << std::endl;
+    if (!s.empty()) {
+        int highest = *s.rbegin(); 
+        std::cout << "Highest square value: " << highest << std::endl;
+    }
+    return 0;
+    
+}
