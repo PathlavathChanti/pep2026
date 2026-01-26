@@ -35,3 +35,32 @@ int main() {
 
     return 0;
 }
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 10;
+
+    // The switch evaluates the expression inside the parentheses (a)
+    switch(a) {
+        
+        case 5:
+            // If a == 5, this block runs
+            cout << "A is equal 5";
+            break; // Exits the switch. Without this, it would "fall through" to the next case.
+
+        case 10:
+            // If a == 10, this block runs
+            cout << "A is equals 10"; // Output: A is equals 10
+            break;
+
+        default:
+            // If 'a' matches none of the above cases, the default block runs
+            cout << "A is not 5 nor 10";
+            break;
+    }
+
+    return 0; // Standard practice to indicate successful program termination
+}
