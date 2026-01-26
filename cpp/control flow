@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 10;
+
+    // --- 1. Simple IF Statement ---
+    // Logic: Checks the condition. If true, runs the block. If false, does nothing.
+    if (a == 10) {
+        cout << "A is true" << endl;  // Output: A is true (Condition 10 == 10 is true)
+    }
+
+    // --- 2. IF-ELSE Statement ---
+    // Logic: If the condition is true, runs the first block. Otherwise, runs the 'else' block.
+    if (a == 5) {
+        cout << "A is true" << endl;
+    } else {
+        cout << "A is false" << endl; // Output: A is false (Because 10 == 5 is false)
+    }
+
+    // --- 3. IF-ELSE IF-ELSE Ladder ---
+    // Logic: Checks conditions one by one. The FIRST one that is true runs, and the rest are ignored.
+    if (a == 5) {
+        cout << "A is true" << endl;
+    } else if (a == 10) {
+        cout << "A is partial" << endl; // Output: A is partial (This condition matches)
+    } else {
+        cout << "A is false" << endl;
+    }
+
+    // --- 4. Ternary Operator (Conditional Expression) ---
+    // Syntax: (condition ? value_if_true : value_if_false)
+    // Logic: A shorthand way of writing a simple if-else.
+    cout << (a == 5 ? "A is true" : "A is false") << endl; // Output: A is false
+
+    return 0;
+}
