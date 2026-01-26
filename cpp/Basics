@@ -1,28 +1,63 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-    int a = 5, b = 6;
+int main() {
+    // --- PART 1: Output Streams ---
+    cout << "Hello World" << endl;     // Output: Hello World (Standard output)
+    cerr << "An error occurred" << endl; // Output: An error occurred (Standard error, unbuffered)
+    clog << "Logging info" << endl;     // Output: Logging info (Standard error, buffered)
 
-    cout << (a + b) << endl;  // 11  (5 + 6)
-    cout << (a - b) << endl;  // -1  (5 - 6)
-    cout << (a * b) << endl;  // 30  (5 * 6)
-    cout << (a / b) << endl;  // 0   (Integer division: 5/6 is 0.83, decimals are dropped)
+    // --- PART 2: Data Types and Type Casting ---
+    int i = 10;
+    float b = 3.65;
+    long l = 7.2;       // Logic: 7.2 (double) is truncated to 7 (long)
+    char c = 'A';
+    bool isTrue = true;
+    bool f = 2.3456f;   // Logic: Any non-zero value becomes 1 (true) in boolean
+
+    cout << i << endl;         // 10
+    cout << b << endl;         // 3.65
+    cout << l << endl;         // 7
+    cout << c << endl;         // A
+    cout << isTrue << endl;    // 1 (true is represented as 1)
+    cout << f << endl;         // 1 (non-zero float becomes true)
+    cout << sizeof(b) << endl; // 4 (Size of a float in bytes)
+    cout << int(c) << endl;    // 65 (Casting 'A' to its ASCII integer value)
+
+    // --- PART 3: Operators and Precedence ---
+    int a = 5, k = 6; // Renamed 'b' to 'k' to avoid conflict with Part 2
+
+    cout << (a + k) << endl;  // 11 (5 + 6)
+    cout << (a - k) << endl;  // -1 (5 - 6)
+    cout << (a * k) << endl;  // 30 (5 * 6)
+    cout << (a / k) << endl;  // 0  (Integer division: 5/6 = 0.833, truncated to 0)
     
-    cout << (a << b) << endl; // 320 (Left shift: 5 * 2^6 = 5 * 64)
-    cout << (a >> b) << endl; // 0   (Right shift: 5 / 2^6 = 0)
+    // Bitwise Shifts
+    cout << (a << k) << endl; // 320 (5 * 2^6)
+    cout << (a >> k) << endl; // 0   (5 / 2^6)
     
-    cout << (a < b) << endl;  // 1   (True: 5 is less than 6)
+    cout << (a < k) << endl;  // 1   (True, 5 is less than 6)
 
-    // Assignment operators change the value of 'a' permanently for the next lines
-    cout << (a += b) << endl; // 11  (a becomes 11)
-    cout << (a -= b) << endl; // 5   (a becomes 11 - 6 = 5)
-    cout << (a *= b) << endl; // 30  (a becomes 5 * 6 = 30)
-    cout << (a /= b) << endl; // 5   (a becomes 30 / 6 = 5)
+    // Compound Assignments (Changes 'a' permanently)
+    cout << (a += k) << endl; // 11  (a = 5 + 6)
+    cout << (a -= k) << endl; // 5   (a = 11 - 6)
+    cout << (a *= k) << endl; // 30  (a = 5 * 6)
+    cout << (a /= k) << endl; // 5   (a = 30 / 6)
 
-    // Increment/Decrement
-    cout << (a++) << endl;    // 5   (Prints current 'a', then 'a' becomes 6)
-    cout << (++b) << endl;    // 7   ('b' becomes 7, then prints 7)
-    cout << (a--) << endl;    // 6   (Prints current 'a', then 'a' becomes 5)
-    cout << (--b) << endl;    // 6   ('
+    // Increment / Decrement
+    cout << (a++) << endl;    // 5   (Post-increment: print 5, then a becomes 6)
+    cout << (++k) << endl;    // 7   (Pre-increment: k becomes 7, then print 7)
+    cout << (a--) << endl;    // 6   (Post-decrement: print 6, then a becomes 5)
+    cout << (--k) << endl;    // 6   (Pre-decrement: k becomes 6, then print 6)
+
+    // Logical vs Bitwise
+    // Current state: a = 5, k = 6
+    cout << (a && k) << endl; // 1   (Logical AND: Both are non-zero/true)
+    cout << (a || k) << endl; // 1   (Logical OR: At least one is true)
+    
+    // Binary: 5 is 101, 6 is 110
+    cout << (a & k) << endl;  // 4   (Bitwise AND: 101 & 110 = 100 in binary)
+    cout << (a | k) << endl;  // 7   (Bitwise OR: 101 | 110 = 111 in binary)
+
+    return 0;
+}
