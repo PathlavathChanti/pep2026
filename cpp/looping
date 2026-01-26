@@ -1,0 +1,103 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    // --- 1. SUM OF FIRST N NUMBERS ---
+    int n1 = 10, sum1 = 0;
+    for (int i = 1; i < n1; ++i) { // Sums 1 to 9
+        sum1 += i;
+    }
+    cout << "Sum (1 to 9): " << sum1 << endl;
+
+    // --- 2. FACTORIAL ---
+    long fact = 1;
+    for (int i = 1; i <= 5; i++) {
+        fact *= i;
+    }
+    cout << "Factorial of 5: " << fact << endl;
+
+    // --- 3. MULTIPLICATION TABLE ---
+    int tableNum = 5; // Example input
+    for (int i = 1; i <= 10; i++) {
+        cout << tableNum << " * " << i << " = " << (tableNum * i) << endl;
+    }
+
+    // --- 4. REVERSE A NUMBER ---
+    int nRev = 1234, reversedNum = 0;
+    while (nRev != 0) {
+        int rem = nRev % 10;
+        reversedNum = reversedNum * 10 + rem;
+        nRev /= 10;
+    }
+    cout << "Reversed Number: " << reversedNum << endl;
+
+    // --- 5. REVERSE A STRING ---
+    string str = "Hello";
+    cout << "Reversed String: ";
+    for (int i = str.length() - 1; i >= 0; i--) {
+        cout << str[i];
+    }
+    cout << endl;
+
+    // --- 6. EVEN OR ODD ---
+    int checkNum = 10;
+    if (checkNum % 2 == 0) cout << checkNum << " is even" << endl;
+    else cout << checkNum << " is odd" << endl;
+
+    // --- 7. PRIME NUMBER CHECK (FIXED) ---
+    int p = 29;
+    bool isPrime = true;
+    if (p <= 1) isPrime = false;
+    else {
+        // We check up to sqrt(p) or p/2 for efficiency
+        for (int i = 2; i <= p / 2; i++) { 
+            if (p % i == 0) { // Should check against 'i', not 2
+                isPrime = false;
+                break;
+            }
+        }
+    }
+    cout << p << (isPrime ? " is prime" : " is not prime") << endl;
+
+    // --- 8. SUM OF DIGITS ---
+    int nDigits = 123, digitSum = 0;
+    while (nDigits > 0) {
+        digitSum += nDigits % 10;
+        nDigits /= 10;
+    }
+    cout << "Sum of Digits: " << digitSum << endl;
+
+    // --- 9. FIBONACCI SERIES ---
+    int fibN = 5, t1 = 0, t2 = 1;
+    cout << "Fibonacci: ";
+    for (int i = 1; i <= fibN; ++i) {
+        cout << t1 << " ";
+        int next = t1 + t2;
+        t1 = t2;
+        t2 = next;
+    }
+    cout << endl;
+
+    // --- 10. ARMSTRONG NUMBER (153) ---
+    int armNum = 153, tempArm, armRem, armResult = 0;
+    tempArm = armNum;
+    while (tempArm != 0) {
+        armRem = tempArm % 10;
+        armResult += armRem * armRem * armRem; // Cube of digit
+        tempArm /= 10;
+    }
+    if (armResult == armNum) cout << armNum << " is Armstrong" << endl;
+
+    // --- 11. NESTED LOOP (STAR PATTERN) ---
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= i; j++) {
+            cout << "*";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
