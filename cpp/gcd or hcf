@@ -1,0 +1,25 @@
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n1, n2;
+
+    cout << "Enter two numbers: ";
+    cin >> n1 >> n2;
+
+    // We store the original values for the final output
+    int a = n1;
+    int b = n2;
+
+    // Euclidean Algorithm by Subtraction
+    while(n1 != n2) {
+        if(n1 > n2)
+            n1 -= n2;
+        else
+            n2 -= n1;
+    }
+
+    cout << "GCD of " << a << " and " << b << " is: " << n1 << endl;
+    return 0;
+}
