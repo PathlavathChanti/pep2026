@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int total, ben_percent, blackbeard_percent;
+    
+    // 1. Input total coins, Ben's %, and Blackbeard's %
+    cin >> total >> ben_percent >> blackbeard_percent;
+
+    // 2. Ben takes his share
+    int ben_coins = (total * ben_percent) / 100;
+    int remaining = total - ben_coins;
+
+    // 3. Blackbeard takes his share of the ORIGINAL total
+    int blackbeard_coins = (total * blackbeard_percent) / 100;
+    remaining = remaining - blackbeard_coins;
+
+    // 4. Remaining coins are split among 3 others
+    int each_other = remaining / 3;
+    int left_for_reproducibility = remaining % 3; // Any leftover coins after splitting
+
+    // Output the results (adjust based on your specific problem's requirements)
+    cout << ben_coins << endl;
+    cout << blackbeard_coins << endl;
+    cout << each_other << endl;
+
+    return 0;
+}
